@@ -1,0 +1,8 @@
+import fs from "node:fs";import path from "node:path";
+const root=process.cwd(),profile=JSON.parse(fs.readFileSync(path.join(root,"content/profile.json"),"utf8")),config=JSON.parse(fs.readFileSync(path.join(root,"content/site.json"),"utf8"));
+const localDate=new Intl.DateTimeFormat("en-CA",{timeZone:profile.internship.timeZone,year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
+const current=localDate>=profile.internship.startDate;
+const role=config.PUBLISH_INTERNSHIP?"**"+(current?"SDE Intern":"Incoming SDE Intern")+(config.REVEAL_EMPLOYER?" at "+profile.internship.employer:"")+"**"+(current?"":" (starting January 2027)"):"";
+const rows=profile.projects.map(p=>"| ["+p.title+"]("+p.repo+") | "+p.category+" | "+p.stack.slice(0,3).join(", ")+" |").join("\n");
+const out=["# Hey, I'm "+profile.name+" 👋","", "**"+profile.title+"**","",profile.education.degree+" · "+profile.education.institution+" · Class of "+profile.education.graduationYear,"",role,"",profile.tagline,"","## Featured projects","", "| Project | Focus | Core stack |","|---|---|---|",rows,"","**"+profile.projects.find(p=>p.id==="commerce").note+"**","","## Connect","", "- [GitHub]("+profile.links.github+")","- [LinkedIn]("+profile.links.linkedin+")","- [Email](mailto:"+profile.links.email+")",...(config.SITE_URL?["- [Portfolio]("+config.SITE_URL+")"]:[]),...(config.RESUME_URL?["- [Resume]("+config.RESUME_URL+")"]:[]),"", "Every project above links to its public implementation. Portfolio source: https://github.com/TanmayyyK/portfolio",""].filter(x=>x!==null).join("\n");
+fs.mkdirSync(path.join(root,"dist/profile"),{recursive:true});fs.writeFileSync(path.join(root,"dist/profile/README.md"),out);console.log("Generated profile README");

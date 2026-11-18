@@ -1,0 +1,148 @@
+{
+  "name": "Tanmay Kumar",
+  "title": "Software Engineer",
+  "tagline": "Building intelligent systems. Designing thoughtful experiences.",
+  "education": {
+    "institution": "Delhi Technological University",
+    "degree": "Bachelor of Technology",
+    "graduationYear": 2027
+  },
+  "internship": {
+    "employer": "Razorpay",
+    "title": "Software Development Engineer Intern",
+    "startDate": "2027-01-12",
+    "timeZone": "Asia/Kolkata"
+  },
+  "links": {
+    "github": "https://github.com/TanmayyyK",
+    "linkedin": "https://www.linkedin.com/in/tanmay-kumar-72882823a/",
+    "email": "tanmayjoon23@gmail.com"
+  },
+  "projects": [
+    {
+      "id": "overwatch",
+      "title": "Overwatch",
+      "category": "Distributed ML systems",
+      "summary": "Multi-service forensic media analysis coordinating image, text and audio workers, vector similarity, and an operator-facing dashboard.",
+      "focus": "Asynchronous event reconciliation, inference orchestration, vector retrieval and traceable evidence.",
+      "stack": [
+        "Python",
+        "FastAPI",
+        "React",
+        "TypeScript",
+        "PostgreSQL",
+        "pgvector",
+        "Docker"
+      ],
+      "repo": "https://github.com/TanmayyyK/sourcegraph",
+      "architecture": [
+        "Media intake",
+        "FFmpeg extraction",
+        "Vision + context workers",
+        "Async orchestrator",
+        "Vector retrieval",
+        "React command center"
+      ],
+      "note": "Described from repository implementation; live production performance is unverified."
+    },
+    {
+      "id": "commerce",
+      "title": "Agentic Commerce",
+      "category": "Payment orchestration",
+      "summary": "Independent agent-oriented checkout experiment with mandates, guarded authorization and durable transaction state.",
+      "focus": "Webhook verification, idempotency, signing boundaries and checkout session state.",
+      "stack": [
+        "Node.js",
+        "Express",
+        "Next.js",
+        "SQLite",
+        "Razorpay API",
+        "Jest"
+      ],
+      "repo": "https://github.com/TanmayyyK/rzp-acp-implementation",
+      "architecture": [
+        "Agent request",
+        "Signature guard",
+        "Mandate checks",
+        "Checkout session",
+        "Payment intent",
+        "Verified webhook"
+      ],
+      "note": "Independent project using Razorpay's public APIs. Not official Razorpay work or endorsement."
+    },
+    {
+      "id": "attendance",
+      "title": "Attendance Tracker",
+      "category": "Cross-platform application",
+      "summary": "Web and Expo mobile application for attendance tracking, historical analysis and academic planning.",
+      "focus": "Attendance calculations, typed client/server flows, scheduling and mobile interfaces.",
+      "stack": [
+        "Next.js",
+        "TypeScript",
+        "FastAPI",
+        "SQLModel",
+        "React Native",
+        "Expo"
+      ],
+      "repo": "https://github.com/TanmayyyK/attendancetracker",
+      "architecture": [
+        "Web + Expo UI",
+        "Typed API client",
+        "FastAPI routes",
+        "Attendance models",
+        "Analytics engine",
+        "Dashboard + planner"
+      ],
+      "note": "Listed deployment has not been independently performance-tested."
+    },
+    {
+      "id": "arbiter",
+      "title": "Neural Arbiter",
+      "category": "Multi-agent AI",
+      "summary": "Multi-agent debate interface featuring structured judging, WebSocket state updates and human-in-the-loop routing.",
+      "focus": "LangGraph conditional state machine, judge workflow and coordinated visualization.",
+      "stack": [
+        "Python",
+        "LangGraph",
+        "FastAPI",
+        "React",
+        "TypeScript",
+        "WebSockets"
+      ],
+      "repo": "https://github.com/TanmayyyK/Neural-arbiter",
+      "architecture": [
+        "Topic + context",
+        "Search node",
+        "Debate graph",
+        "Judge node",
+        "WebSocket updates",
+        "React visualizations"
+      ],
+      "note": "Hackathon prototype; runtime/provider guarantees are not claimed."
+    },
+    {
+      "id": "nirman",
+      "title": "NirmanAI",
+      "category": "Data science prototype",
+      "summary": "Collaborative hackathon prototype examining construction formwork kitting using clustering and interactive analysis.",
+      "focus": "Geometry data processing, K-Means clustering, BoQ planning and visualization.",
+      "stack": [
+        "Python",
+        "Streamlit",
+        "Pandas",
+        "Scikit-learn",
+        "Plotly"
+      ],
+      "repo": "https://github.com/TanmayyyK/nirmanAI",
+      "architecture": [
+        "Geometry input",
+        "Tabular dataset",
+        "K-Means clustering",
+        "Master kit planning",
+        "BoQ estimation",
+        "Streamlit dashboard"
+      ],
+      "note": "Projected savings in the README are not presented as achieved results."
+    }
+  ]
+}
