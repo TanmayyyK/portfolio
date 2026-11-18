@@ -2,6 +2,9 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  schedule:
+    # Rebuild public content daily so internship status switches on 12 Jan 2027.
+    - cron: '40 18 * * *'
   workflow_dispatch:
 permissions:
   contents: read
