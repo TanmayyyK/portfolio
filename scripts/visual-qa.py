@@ -6,7 +6,7 @@ report=[]
 with sync_playwright() as p:
     browser=p.chromium.launch(headless=True)
     for width in [360,768,1024,1440]:
-        page=browser.new_page(viewport={"width":width,"height":900},reduced_motion="reduce")
+        page=browser.new_page(viewport={"width":width,"height":900},reduced_motion="reduce",color_scheme="dark")
         errors=[]
         page.on("pageerror",lambda err:errors.append(str(err)))
         page.goto("http://127.0.0.1:4173",wait_until="networkidle")
