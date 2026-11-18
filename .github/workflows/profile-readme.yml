@@ -1,0 +1,41 @@
+name: Synchronize GitHub profile README
+on:
+  schedule:
+    - cron: '40 18 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  synchronize:
+    runs-on: ubuntu-latest
+    env:
+      PROFILE_SYNC_TOKEN: ${{ secrets.PROFILE_SYNC_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Regenerate from shared content
+        run: npm run readme:generate
+      - name: Check sync credentials
+        if: env.PROFILE_SYNC_TOKEN == ''
+        run: echo 'Configure PROFILE_SYNC_TOKEN scoped to the profile README repository to activate syncing.'
+      - name: Retrieve profile repository
+        if: env.PROFILE_SYNC_TOKEN != ''
+        uses: actions/checkout@v4
+        with:
+          repository: TanmayyyK/TanmayyyK
+          token: ${{ secrets.PROFILE_SYNC_TOKEN }}
+          path: profile-repository
+          persist-credentials: true
+      - name: Commit generated README if changed
+        if: env.PROFILE_SYNC_TOKEN != ''
+        run: |
+          cp dist/profile/README.md profile-repository/README.md
+          cd profile-repository
+          git add README.md
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'docs: synchronize public profile content'
+          git push origin HEAD:main
